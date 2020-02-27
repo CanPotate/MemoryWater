@@ -9,6 +9,7 @@ and open the template in the editor.
         <title>Memory Water</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stils.css">
         <script>
             
             
@@ -23,25 +24,29 @@ and open the template in the editor.
 
             function setN(){
                 let n = document.getElementById("n").value;
-                var colores = [];
-                for(let i=0; i<n*n; i++){
-                    colores[i] = getRandomColor();
-                }
+                
                 if(n%2==0 && n>0){
-                    var p =0;
+                
+                    var gam = document.getElementById("theGame");
+
+                    while (gam.hasChildNodes()) {  
+                        gam.removeChild(gam.firstChild);
+                    } 
+                   
                     for(var i=0; i<n; i++){
                         var div = document.createElement("DIV");
                         div.style = " display: table-row;"
                         document.getElementById("theGame").appendChild(div);
                         for(var j=0; j<n; j++){
                             let div1 = document.createElement("DIV");
-                            div1.style = "border: 5px solid white; display: table-cell; height: 70px; width: 70px; background-color: #0000ff;";
+                            div1.class = "duck";
+                            
                             div1.onclick = () =>{
-                                div1.style = "border: 5px solid white; display: table-cell; height: 70px; width: 70px; background-color: "+colores[p] +";";
+                                div1.style = "border: 5px solid white; display: table-cell; height: 70px; width: 70px; background-color: "+getRandomColor();
                             }
                             div.appendChild(div1);
-                            p++;
-                            console.log(colores[p]);
+                            
+                            
                         }
                     }
                 }else{
