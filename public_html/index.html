@@ -38,8 +38,9 @@ and open the template in the editor.
                         div.style = " display: table-row;"
                         document.getElementById("theGame").appendChild(div);
                         for(var j=0; j<n; j++){
-                            div1.class = "duck";
+                            
                             let div1 = document.createElement("DIV");
+                            div1.style = "border: 5px solid white; display: table-cell; height: 70px; width: 70px; background-color: "+getRandomColor();
                             //div1.class = "duck";
                             
                             div1.onclick = () =>{
