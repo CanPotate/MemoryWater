@@ -7,10 +7,10 @@ and open the template in the editor.
     Created on : Feb 27, 2020, 4:23:58 PM
     Author     : dgorovojs
 */
-
 .duck{
     box-shadow: 0 0px 0px gray;
     transition: box-shadow 0.5s ease-in-out;
+
     border: 5px solid white; 
     display: table-cell; 
     height: 70px; width: 70px; 
@@ -20,8 +20,8 @@ and open the template in the editor.
 .duck:hover{
     box-shadow: 0 0px 0px gray;
     animation: grow 0.5s;
-    
     animation-iteration-count: 1;
+    
 }
 
 @keyframes grow{
