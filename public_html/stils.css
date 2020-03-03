@@ -19,12 +19,31 @@ and open the template in the editor.
 
 .duck:hover{
     box-shadow: 0 0px 0px gray;
-    animation: grow 0.5s;
+    animation: grow 0.15s;
     animation-iteration-count: 1;
+    transform: scale(1.15);
     
 }
 
 @keyframes grow{
     0% {transform: scale(1);}
-    100% {transform: scale(1.1);}
+    100% {transform: scale(1.15);}
+}
+
+.goose{
+    box-shadow: 0 0px 0px gray;
+    transition: box-shadow 0.5s ease-in-out;
+
+    border: 5px solid white; 
+    display: table-cell; 
+    height: 70px; width: 70px; 
+    background-color: #ff0000;
+}
+
+.goose:hover{
+    box-shadow: 0 0px 0px gray;
+    animation: grow 0.15s;
+    animation-iteration-count: 1;
+    transform: scale(1.15);
+    
 }
