@@ -8,8 +8,8 @@ and open the template in the editor.
     Author     : dgorovojs
 */
 .duck{
-    box-shadow: 0 0px 0px gray;
-    transition: box-shadow 0.5s ease-in-out;
+    box-shadow: 0px 0px 0px gray;
+    transition: box-shadow 0.15s ease-in-out;
 
     border: 5px solid white; 
     display: table-cell; 
@@ -18,7 +18,7 @@ and open the template in the editor.
 }
 
 .duck:hover{
-    box-shadow: 0 0px 0px gray;
+    box-shadow: 5px 5px 5px gray;
     animation: grow 0.15s;
     animation-iteration-count: 1;
     transform: scale(1.15);
@@ -31,8 +31,8 @@ and open the template in the editor.
 }
 
 .goose{
-    box-shadow: 0 0px 0px gray;
-    transition: box-shadow 0.5s ease-in-out;
+    box-shadow: 0px 0px 0px gray;
+    transition: box-shadow 0.15s ease-in-out;
 
     border: 5px solid white; 
     display: table-cell; 
@@ -41,7 +41,7 @@ and open the template in the editor.
 }
 
 .goose:hover{
-    box-shadow: 0 0px 0px gray;
+    box-shadow: 5px 5px 5px gray;
     animation: grow 0.15s;
     animation-iteration-count: 1;
     transform: scale(1.15);
