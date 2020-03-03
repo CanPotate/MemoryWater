@@ -13,6 +13,7 @@ and open the template in the editor.
         <script>
             
             
+    
             function getRandomColor() {
                 var letters = '0123456789ABCDEF';
                 var color = '#';
@@ -43,6 +44,9 @@ and open the template in the editor.
                             
                             div1.onclick = () =>{
                                 div1.style = "border: 5px solid white; display: table-cell; height: 70px; width: 70px; background-color: "+getRandomColor();
+                                div1.onclick = () => {
+                                    div1.style = "";
+                                }
                             }
                             div.appendChild(div1);
                             
