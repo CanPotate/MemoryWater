@@ -40,8 +40,10 @@ and open the template in the editor.
                         for(var j=0; j<n; j++){
                             
                             let div1 = document.createElement("DIV");
-                            div1.style = "border: 5px solid white; display: table-cell; height: 70px; width: 70px; background-color: "+getRandomColor();
+                            //div1.innerHTML="ghg";
+                            //div1.style = "border: 5px solid white; display: table-cell; height: 70px; width: 70px; background-color: "+getRandomColor();
                             //div1.class = "duck";
+                            div1.setAttribute("class","duck")
                             
                             div1.onclick = () =>{
                                 div1.style = "border: 5px solid white; display: table-cell; height: 70px; width: 70px; background-color: "+getRandomColor();
