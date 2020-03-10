@@ -13,6 +13,7 @@ and open the template in the editor.
         <script>
             
             
+    
             function getRandomColor() {
                 var letters = '0123456789ABCDEF';
                 var color = '#';
@@ -21,10 +22,19 @@ and open the template in the editor.
                 }
                 return color;
             }
+            var chick = [];
+            var cock = chick;
+            var goose = [];
+            var skats = 0;
 
             function setN(){
                 let n = document.getElementById("n").value;
                 
+                for(let i=0; i<n*n; i++){
+                    chick.push(getRandomColor());
+                }
+                
+                var num=0;
                 if(n%2==0 && n>0){
                 
                     var gam = document.getElementById("theGame");
@@ -40,20 +50,58 @@ and open the template in the editor.
                         for(var j=0; j<n; j++){
                             
                             let div1 = document.createElement("DIV");
-                            div1.setAttribute("class","duck")
+                            div1.setAttribute("class","duck");
+                            div1.setAttribute("num", num);
                             
-                            div1.onclick = () =>{
-                                //div1.setAttribute("class","goose")
-                                div1.style = "background-color:" + getRandomColor();
+                            div1.onclick = () => {
+                                if(!div1.hasAttribute("apgriezts")){
+                                    apgriesana(0, div1);
+                                }
+                                else if(div1.getAttribute("apgriezts")===0){
+                                    apgriesana(0, div1);
+                                }
+                                else{
+                                    apgriesana(1, div1);
+                                }
                                 
                             }
                             div.appendChild(div1);
-                            
+                            num++;
                             
                         }
                     }
                 }else{
                     window.alert("Ievadiet pozitīvu pāra skaitli!");
+                }
+            }
+            
+            
+            function rindim (){
+                for(var i = 0; i<n*n; i++){
+                    var a = Math.floor(Math.random()*n*n/2);
+                    var b = Math.floor(Math.random()*2);
+                    if(b==0&&chick.length()>0){
+                        do{
+                            if(chick[a]!=null){
+                                goose[i]=chick[a];
+                                chick[a]=null;
+                            }
+                            else{
+                                a=a++;
+                                if(a==n*n)a=0;
+                            }
+                        }while(chick[a]==null)
+                    }
+                    
+                }
+            }
+            
+            
+            function apgriesana(ij, div){
+                if(ij===0){
+                    //tagad būs/tiek apgriezts ar krāsaino pusi uz augšu
+                }else{
+                    //otrādi
                 }
             }
         </script>
