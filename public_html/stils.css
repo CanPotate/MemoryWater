@@ -47,3 +47,13 @@ and open the template in the editor.
     transform: scale(1.15);
     
 }
+
+@keyframes xScale{
+    0% {transform: scaleX(1)}
+    100% {transform: scaleX(0)}
+}
+
+@keyframes xScale1{
+    0% {transform: scaleX(0)}
+    100% {transform: scaleX(1)}
+}

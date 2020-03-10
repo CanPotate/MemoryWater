@@ -24,10 +24,11 @@ and open the template in the editor.
             }
             
             var skats = 0;
+            var chick = [];
+            var atverts = [];
 
             function setN(){
                 let n = document.getElementById("n").value;
-                var chick = [];
                 for(let i=0; i<n*n; i++){
                     chick.push(getRandomColor());
                 }
@@ -36,7 +37,7 @@ and open the template in the editor.
                 if(n%2==0 && n>0){
                 
                     var gam = document.getElementById("theGame");
-
+                    atverts = [];
                     while (gam.hasChildNodes()) {  
                         gam.removeChild(gam.firstChild);
                     } 
@@ -49,19 +50,14 @@ and open the template in the editor.
                             
                             let div1 = document.createElement("DIV");
                             div1.setAttribute("class","duck");
-                            div1.setAttribute("num", num);
-                            
+                            div1.id = num;
                             div1.onclick = () => {
-                                if(!div1.hasAttribute("apgriezts")){
-                                    apgriesana(0, div1);
-                                }
-                                else if(div1.getAttribute("apgriezts")===0){
-                                    apgriesana(0, div1);
-                                }
-                                else{
+                                if(atverts[0]==div1||atverts[1]==div1){
                                     apgriesana(1, div1);
                                 }
-                                
+                                else{
+                                    apgriesana(0, div1);
+                                }
                             }
                             div.appendChild(div1);
                             num++;
@@ -76,8 +72,18 @@ and open the template in the editor.
             function apgriesana(ij, div){
                 if(ij===0){
                     //tagad būs/tiek apgriezts ar krāsaino pusi uz augšu
+                    if(atverts.length>=2){
+                        atverts[0].style="background-color: #000000";
+                        atverts[1].style="background-color: #000000";
+                        atverts = [];
+                    }
+                    
+                    div.style="background-color: "+chick[div.id];
+                    atverts.push(div);
                 }else{
                     //otrādi
+                    div.style="background-color: #000000";
+                    //todo
                 }
             }
         </script>
