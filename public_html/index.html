@@ -171,14 +171,13 @@ and open the template in the editor.
                             atklats.push(atverts[0]);
                             atklats.push(atverts[1]);
                             atverts=[];
-                            if(atklats.length==n*n) console.log("jēēē");
+                            if(atklats.length==n*n) setN();
                         }   
                     }
                 } else {
                     atverts.splice(atverts.indexOf(div), 1);
                     div.style = "background-color: #000000";
                 }
-                console.log(atverts);
             }
 
             function rgb2hex(rgb) {
