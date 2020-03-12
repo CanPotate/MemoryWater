@@ -11,9 +11,9 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="stils.css">
         <script>
-            
-            
-    
+
+
+
             function getRandomColor() {
                 var letters = '0123456789ABCDEF';
                 var color = '#';
@@ -28,88 +28,165 @@ and open the template in the editor.
             var skats = 0;
             var chick = [];
             var atverts = [];
+            var atklats = [];
+            var r1 = [];
+            var r2 = [];
+            var r3 = [];
+            var r4 = [];
+            var n;
 
-            function setN(){
-                let n = document.getElementById("n").value;
-                
-                for(let i=0; i<n*n; i++){
+            function setN() {
+                n = document.getElementById("n").value;
+
+                for (let i = 0; i < n * n; i++) {
                     chick.push(getRandomColor());
                 }
+
                 
-                var num=0;
-                if(n%2==0 && n>0){
-                
+
+                var num = 0;
+                if (n % 2 == 0 && n > 0) {
+
                     var gam = document.getElementById("theGame");
                     atverts = [];
-                    while (gam.hasChildNodes()) {  
+                    atklats = [];
+                    r1 = [];
+                    r2 = [];
+                    r3 = [];
+                    r4 = [];
+                    gustRand();
+                    while (gam.hasChildNodes()) {
                         gam.removeChild(gam.firstChild);
-                    } 
-                   
-                    for(var i=0; i<n; i++){
+                    }
+                    
+
+                    for (var i = 0; i < n; i++) {
                         var div = document.createElement("DIV");
                         div.style = " display: table-row;"
                         document.getElementById("theGame").appendChild(div);
-                        for(var j=0; j<n; j++){
-                            
+                        for (var j = 0; j < n; j++) {
+
                             let div1 = document.createElement("DIV");
-                            div1.setAttribute("class","duck");
+                            div1.setAttribute("class", "duck");
                             div1.id = num;
                             div1.onclick = () => {
-                                if(atverts[0]==div1||atverts[1]==div1){
+                                if (atverts[0] == div1 || atverts[1] == div1) {
                                     apgriesana(1, div1);
-                                }
-                                else{
+                                } else {
                                     apgriesana(0, div1);
                                 }
                             }
                             div.appendChild(div1);
                             num++;
-                            
+
                         }
                     }
-                }else{
+                } else {
                     window.alert("Ievadiet pozitīvu pāra skaitli!");
                 }
             }
-            
-            
-            function rindim (){
-                for(var i = 0; i<n*n; i++){
-                    var a = Math.floor(Math.random()*n*n/2);
-                    var b = Math.floor(Math.random()*2);
-                    if(b==0&&chick.length()>0){
-                        do{
-                            if(chick[a]!=null){
-                                goose[i]=chick[a];
-                                chick[a]=null;
+
+
+            function rindim() {
+                for (var i = 0; i < n * n; i++) {
+                    var a = Math.floor(Math.random() * n * n / 2);
+                    var b = Math.floor(Math.random() * 2);
+                    if (b == 0 && chick.length() > 0) {
+                        do {
+                            if (chick[a] != null) {
+                                goose[i] = chick[a];
+                                chick.splice(a, 1);
+                            } else {
+                                a++;
+                                if (a == n * n)
+                                    a = 0;
                             }
-                            else{
-                                a=a++;
-                                if(a==n*n)a=0;
-                            }
-                        }while(chick[a]==null)
+                        } while (chick[a] == null)
+                    } else {
+
                     }
-                    
+
                 }
             }
-            
-            
-            function apgriesana(ij, div){
-                if(ij===0){
-                    //tagad būs/tiek apgriezts ar krāsaino pusi uz augšu
-                    if(atverts.length>=2){
-                        atverts[0].style="background-color: #000000";
-                        atverts[1].style="background-color: #000000";
+
+            function gustRand() {
+                for (var o = 0; o < n * n / 2; o++) {
+                    r1[o] = getRandomColor();
+                    r2[o] = 0;
+                }
+                for (var p = 0; p < n * n; p++) {
+                    var op = false;
+                    var num = Math.floor(Math.random() * r1.length);
+                    do {
+                        if (r1[num] !== 0) {
+                            if (r2[num] === 0) {
+                                r3.push(r1[num]);
+                                if (Math.floor(Math.random() * 2) == 0) {
+                                    r2[num] = 1;
+                                    r4.push(1);
+                                } else {
+                                    r2[num] = 2;
+                                    r4.push(2);
+                                }
+                            } else if (r2[num] === 1) {
+                                r3[p] = r1[num];
+                                r2[num] = 2;
+                                r4[p] = 2;
+                                r1[num] = 0;
+                            } else if (r2[num] === 2) {
+                                r3[p] = r1[num];
+                                r2[num] = 1;
+                                r4[p] = 1;
+                                r1[num] = 0;
+                            }
+                            op = true;
+                        } else {
+                            num++;
+                            if (num >= r1.length)
+                                num = 0;
+                        }
+                    } while (op == false)
+                    //if(Math.floor(Math.random()*2)==0) r2[o]=0;
+                    //else r2[o]=0;
+                }
+            }
+
+
+            function apgriesana(ij, div) {
+                if (ij === 0) {
+                    if (atverts.length >= 2) {
+                        atverts[0].style = "background-color: #000000";
+                        atverts[1].style = "background-color: #000000";
                         atverts = [];
                     }
-                    
-                    div.style="background-color: "+chick[div.id];
+                    if (r4[div.id] == 1)
+                        div.style = "background-color: " + r3[div.id];
+                    else if (r4[div.id] == 2) {
+                        div.style = "background-color: #FFFFFF";
+                        div.innerHTML = r3[div.id];
+                    }
                     atverts.push(div);
-                }else{
-                    //otrādi
-                    div.style="background-color: #000000";
-                    //todo
+                    if (atverts.length == 2) {
+                        if (atverts[0].innerHTML == rgb2hex(atverts[1].style.backgroundColor) || atverts[1].innerHTML == rgb2hex(atverts[0].style.backgroundColor)){
+                            atklats.push(atverts[0]);
+                            atklats.push(atverts[1]);
+                            atverts=[];
+                            if(atklats.length==n*n) console.log("jēēē");
+                        }   
+                    }
+                } else {
+                    atverts.splice(atverts.indexOf(div), 1);
+                    div.style = "background-color: #000000";
                 }
+                console.log(atverts);
+            }
+
+            function rgb2hex(rgb) {
+                rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                function hex(x) {
+                    return ("0" + parseInt(x).toString(16).toUpperCase()).slice(-2);
+                }
+                return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
             }
         </script>
     </head>
