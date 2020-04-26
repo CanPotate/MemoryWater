@@ -15,11 +15,14 @@ and open the template in the editor.
 
 
             function getRandomColor() {
-                var letters = '0123456789ABCDEF';
-                var color = '#';
-                for (var i = 0; i < 6; i++) {
-                    color += letters[Math.floor(Math.random() * 16)];
-                }
+                //var letters = '0123456789ABCDEF';
+                //var color = '#';
+                //for (var i = 0; i < 6; i++) {
+                //    color += letters[Math.floor(Math.random() * 16)];
+                //}
+                //return color;
+
+                var color = Math.floor(Math.random() * 256)+", "+Math.floor(Math.random() * 256)+", "+Math.floor(Math.random() * 256);
                 return color;
             }
             var chick = [];
@@ -34,6 +37,7 @@ and open the template in the editor.
             var r3 = [];
             var r4 = [];
             var n;
+            var start;
 
             function setN() {
                 n = document.getElementById("n").value;
@@ -59,6 +63,7 @@ and open the template in the editor.
                         gam.removeChild(gam.firstChild);
                     }
                     
+                    start = new Date().getTime();
 
                     for (var i = 0; i < n; i++) {
                         var div = document.createElement("DIV");
@@ -162,18 +167,22 @@ and open the template in the editor.
                         atverts = [];
                     }
                     if (r4[div.id] == 1)
-                        div.style = "background-color: " + r3[div.id];
+                        div.style = "background-color: " + "rgb("+r3[div.id]+")";
                     else if (r4[div.id] == 2) {
                         div.style = "background-color: #FFFFFF";
                         div.innerHTML = r3[div.id];
                     }
                     atverts.push(div);
                     if (atverts.length == 2) {
-                        if (atverts[0].innerHTML == rgb2hex(atverts[1].style.backgroundColor) || atverts[1].innerHTML == rgb2hex(atverts[0].style.backgroundColor)){
+                        if ("rgb("+atverts[0].innerHTML+")" == atverts[1].style.backgroundColor || "rgb("+atverts[1].innerHTML+")" == atverts[0].style.backgroundColor){
                             atklats.push(atverts[0]);
                             atklats.push(atverts[1]);
                             atverts=[];
-                            if(atklats.length==n*n) setN();
+                            if(atklats.length==n*n) {
+                                var end = new Date().getTime();
+                                window.alert(end-start);
+                                //setN();
+                            }
                         }   
                     }
                 } 

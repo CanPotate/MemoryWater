@@ -13,7 +13,7 @@ and open the template in the editor.
 
     border: 5px solid white; 
     display: table-cell; 
-    height: 70px; width: 70px; 
+    height: 100px; width: 100px; 
     text-align: center;
     vertical-align: middle;
     background-color: #000000;
@@ -39,7 +39,7 @@ and open the template in the editor.
     vertical-align: middle;
     border: 5px solid white; 
     display: table-cell; 
-    height: 70px; width: 70px; 
+    height: 100px; width: 100px; 
     background-color: #ff0000;
 }
 
