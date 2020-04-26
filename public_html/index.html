@@ -71,7 +71,7 @@ and open the template in the editor.
                             div1.id = num;
                             div1.onclick = () => {
                                 if (atverts[0] == div1 || atverts[1] == div1) {
-                                    apgriesana(1, div1);
+                                    //apgriesana(1, div1);
                                 } else {
                                     apgriesana(0, div1);
                                 }
@@ -174,7 +174,8 @@ and open the template in the editor.
                             if(atklats.length==n*n) setN();
                         }   
                     }
-                } else {
+                } 
+                else {
                     atverts.splice(atverts.indexOf(div), 1);
                     div.style = "background-color: #000000";
                 }
