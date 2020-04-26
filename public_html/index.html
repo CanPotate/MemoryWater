@@ -67,7 +67,7 @@ and open the template in the editor.
 
                     for (var i = 0; i < n; i++) {
                         var div = document.createElement("DIV");
-                        div.style = " display: table-row; text-align: center;"
+                        div.style = " display: table-row;"
                         document.getElementById("theGame").appendChild(div);
                         for (var j = 0; j < n; j++) {
 
@@ -75,11 +75,13 @@ and open the template in the editor.
                             div1.setAttribute("class", "duck");
                             div1.id = num;
                             div1.onclick = () => {
+                                div1.style.animation= 'x10 0.4s 1'
                                 if (atverts[0] == div1 || atverts[1] == div1 || atklats.includes(div1)) {
                                     //apgriesana(1, div1);
                                 } else {
                                     apgriesana(0, div1);
                                 }
+                                div1.style.animation= 'x01 0.4s 1'
                             }
                             div.appendChild(div1);
                             num++;
