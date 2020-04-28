@@ -182,7 +182,8 @@ and open the template in the editor.
                             atverts=[];
                             if(atklats.length==n*n) {
                                 var end = new Date().getTime();
-                                window.alert(end-start);
+                                window.alert("Spēles ilgums - "+(end-start)/1000 +" sekundes");
+                                rezultati.style.visibility="visible";
                                 //setN();
                             }
                         }   
@@ -201,16 +202,28 @@ and open the template in the editor.
                 }
                 return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
             }
+
+            function iesniegt(){
+                
+			}
+
         </script>
     </head>
     <body>
         <h1>Memory Water</h1>
         <div>
             <form id="getN">
-                <input id="n" type="number">
+                <input id="n" type="range" min="4" max="10" value="4" step="2">
                 <input type="button" value="Izveidot" onclick="setN()">
             </form>
         </div>
         <div id="theGame" style="display: table;" ></div>
+        <div id="rezultati" style="visibility: hidden" style="margin-top:10px; margin-bottom:10px">
+            <form id="rezultatiForm">
+                <input type="text" id="name">
+                <input type="button" value="Iesniegt" onclick="iesniegt()">
+            </form>
+            <table id="rezultatiTable" style="margin-top:10px"></table>
+        </div>
     </body>
 </html>
