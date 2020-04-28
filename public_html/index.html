@@ -37,11 +37,12 @@ and open the template in the editor.
             var r3 = [];
             var r4 = [];
             var n;
+            var time;
             var start;
 
             function setN() {
                 n = document.getElementById("n").value;
-
+                rezultati.style.visibility="hidden";
                 for (let i = 0; i < n * n; i++) {
                     chick.push(getRandomColor());
                 }
@@ -49,8 +50,7 @@ and open the template in the editor.
                 
 
                 var num = 0;
-                if (n % 2 == 0 && n > 2 && n<22) {
-
+                
                     var gam = document.getElementById("theGame");
                     atverts = [];
                     atklats = [];
@@ -88,9 +88,7 @@ and open the template in the editor.
 
                         }
                     }
-                } else {
-                    window.alert("Ievadiet pozitīvu pāra skaitli, kas lielāks par 2 un mazāks par 22, citādi būs garlaicīga spēle!");
-                }
+                
             }
 
 
@@ -182,9 +180,8 @@ and open the template in the editor.
                             atverts=[];
                             if(atklats.length==n*n) {
                                 var end = new Date().getTime();
-                                window.alert("Spēles ilgums - "+(end-start)/1000 +" sekundes");
+                                time = (end-start)/1000 +" sekundes";
                                 rezultati.style.visibility="visible";
-                                //setN();
                             }
                         }   
                     }
@@ -204,7 +201,13 @@ and open the template in the editor.
             }
 
             function iesniegt(){
-                
+                var t = document.getElementById("rezultatiTable");
+                var rinda = t.insertRow(0);
+                var c1 = rinda.insertCell(0);
+                c1.innerHTML = document.getElementById("name").value;
+                var c2 = rinda.insertCell(1);
+                c2.innerHTML = time;
+                rezultatiForm.style.visibility = "hidden";
 			}
 
         </script>
@@ -213,7 +216,7 @@ and open the template in the editor.
         <h1>Memory Water</h1>
         <div>
             <form id="getN">
-                <input id="n" type="range" min="4" max="10" value="4" step="2">
+                <input id="n" type="range" min="2" max="10" value="4" step="2">
                 <input type="button" value="Izveidot" onclick="setN()">
             </form>
         </div>
