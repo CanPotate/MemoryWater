@@ -182,6 +182,7 @@ and open the template in the editor.
                                 var end = new Date().getTime();
                                 time = (end-start)/1000 +" sekundes";
                                 rezultati.style.visibility="visible";
+                                rezultatiForm.style.visibility="visible";
                             }
                         }   
                     }
@@ -220,7 +221,7 @@ and open the template in the editor.
                 <input type="button" value="Izveidot" onclick="setN()">
             </form>
         </div>
-        <div id="theGame" style="display: table;" ></div>
+        <div id="theGame" style="display: table; margin-top:10px" ></div>
         <div id="rezultati" style="visibility: hidden" style="margin-top:10px; margin-bottom:10px">
             <form id="rezultatiForm">
                 <input type="text" id="name">
